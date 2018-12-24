@@ -1,0 +1,142 @@
+// main: ../style.scss
+/********************************
+*********************************
+E-Commerce Products
+*********************************
+*********************************/
+.ecommerce-products {
+
+  li {
+    margin-bottom: em(30);
+
+    &:nth-child(3n+1) {
+      clear: both;
+    }
+
+    @media (max-width: 991px) {
+      &:nth-child(3n+1) {
+        clear: none;
+      }
+
+      &:nth-child(odd) {
+        clear: both;
+      }
+    }
+  }
+
+  figure {
+    transition: all .2s;
+
+    &:hover {
+      box-shadow: 0px 0px 20px rgba(0,0,0,.2);
+      transform: scale(1.01);
+    }
+
+    a {
+      color: $body-color;
+    }
+
+    div {
+      background: #fff;
+      padding: em(15) em(25) em(20);
+
+      p {
+        font-size: em(18);
+        font-weight: 400;
+        margin-bottom: 0;
+      }
+      span {
+        font-size: em(14,18);
+        font-weight: 700;
+      }
+    }
+
+  }
+}
+
+.ecommerce-horizontal-products {
+
+  li {
+    background: #fff;
+  }
+
+  img {
+    width: em(400);
+  }
+
+  @media (max-width: 991px) {
+    img {
+      width: em(250);
+      // margin-top: em(30);
+    }
+    .product-image {
+      a {
+        margin-top: em(30);
+      }
+    }
+  }
+
+  @media (max-width: 768px) {
+    > li > .float-left {
+      float: none !important;
+    }
+
+    img {
+      margin: 0 0 em(20);
+      width: auto;
+    }
+  }
+
+
+  @include mobile {
+    .product-detail { display: none; }
+    hr { display: none; }
+    li {
+      display: block;
+      .product-image {
+        a {
+          margin-top: 0;
+          img { width: 100%; }
+        }
+      }
+      .media-body {
+        padding: em(15) em(25) em(20);
+        p { margin-bottom: 0; }
+      }
+    }
+  }
+
+  .product-image {
+    margin-right: em(-10);
+  }
+
+  .media-body {
+    padding: em(30);
+
+    p {
+      line-height: em(20,18);
+      font-weight: 400;
+      font-size: em(18);
+      margin-bottom: em(20,18);
+
+      del {
+        font-size: em(14,18);
+      }
+      span {
+        font-size: em(14,11);
+        color: $body-color;
+      }
+      small {
+        font-size: em(11,18);
+      }
+    }
+  }
+}
+
+.invoice-sum {
+  li {
+    background: rgba(0,0,0,.05);
+    margin-bottom: em(2);
+    padding: em(5) em(10);
+  }
+}

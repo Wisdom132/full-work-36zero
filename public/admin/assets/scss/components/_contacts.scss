@@ -1,0 +1,159 @@
+// main: ../style.scss
+/********************************
+*********************************
+Contacts
+*********************************
+*********************************/
+
+.contact-info {
+
+  header {
+    position: relative;
+    padding-top: em(15);
+
+    .thumb-lg::after {
+      left: em(24);
+    }
+
+    .dropdown {
+      @include position(absolute, em(10) em(10) null null);
+    }
+
+    h4 {
+      a {
+        color: rgba(0,0,0,.7);
+        font-weight: 700;
+      }
+      .badge {
+        font-size: rem(10);
+        border-radius: 3px;
+        padding: em(2,10) em(4,10) em(3,10);
+      }
+    }
+
+    .contact-info-address {
+      margin-bottom: em(20);
+      color: $primary;
+      i { font-size: rem(18); vertical-align: middle }
+      p {
+        display: inline-block;
+        font-size: em(13);
+        margin-bottom: 0;
+      }
+    }
+  }
+
+  section {
+    background: rgba(0,0,0,.03);
+    padding: em(20) em(20) em(30);
+    margin-bottom: em(20);
+
+    h5 {
+      font-size: em(15);
+      font-weight: 700;
+      padding-bottom: em(15,15);
+      border-bottom: 1px solid rgba(0,0,0,.1);
+      small { margin-top: em(3,11); }
+    }
+
+    span {
+      font-size: em(23);
+      font-weight: 500;
+      color: $primary;
+    }
+  }
+
+  footer {
+    margin-top: em(30);
+    margin-bottom: em(10);
+    a {
+      font-size: em(13);
+      font-weight: 700;
+      letter-spacing: em(1,13);
+    }
+  }
+}
+
+.contact-details-table {
+  margin-bottom: em(20);
+
+  [class*="col-"] {
+    border-left: 1px solid $theme-border-color;
+    &:first-child { border-left: 0; }
+  }
+
+  .row {
+    border-bottom: 1px solid $theme-border-color;
+    @include padding( em(30) null );
+    margin: 0;
+    &:first-child { border-top: 1px solid $theme-border-color }
+  }
+
+  h5 {
+    @include margin( 0 null em(5,15) );
+    font-size: em(15);
+    font-weight: 700;
+  }
+
+  span { font-family: $headings-font-family }
+}
+
+.contact-list-right {
+  .mail-list-user {
+    width: 100px;
+  }
+
+  @include mobile {
+    .mail-list-user,
+    .mail-list-time {
+      display: none;
+    }
+
+    .mail-list-name {
+      padding-left: 2em;
+    }
+  }
+
+  td {
+    padding: em(10) 0;
+    position: relative;
+  }
+
+  td label {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+  }
+
+  tr:first-child td label {
+    top: calc(50% + 5px);
+  }
+
+  .mail-list-name {
+    & > a {
+      font-weight: 700;
+      display: block;
+    }
+
+    .text-muted a {
+      color: #8d9ea7;
+      text-decoration: underline;
+    }
+  }
+}
+
+.contact-details-profile {
+  .contact-details-table {
+    .row {
+      padding: em(30) 0;
+      &:first-child {
+        border-top: 0;
+        padding-top: em(10);
+      }
+    }
+  }
+}
+
+.nav-tabs li a.active {
+  color: $color-scheme !important;
+}

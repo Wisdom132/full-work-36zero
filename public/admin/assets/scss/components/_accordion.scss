@@ -1,0 +1,55 @@
+// main: ../style.scss
+/********************************
+*********************************
+Accordions
+*********************************
+*********************************/
+.accordion {
+  .card {
+    margin-bottom: em(5, $font-size-base-px);
+    .card-header {
+      padding: 0;
+      a {
+        display: block;
+        padding: em(10,18) em(35,18) em(10,18) em(15,18);
+        position: relative;
+        &:after {
+          content: "\f106";
+          font-family: "FontAwesome";
+          font-size: rem(18);
+          @include position(absolute, 50% null null null);
+          right: rem(15);
+          transform: translateY(-50%);
+        }
+        &.collapsed::after {
+        content: "\f107";
+        }
+      }
+    }
+  }
+
+  [class*="card-outline-"], .card-inverse {
+    .card-header a {
+      color: #fff;
+    }
+  }
+}
+
+.accordion-minimal {
+  .card { border: none }
+  .card-header {
+    background: #fff;
+    .card-title {
+      font-size: em(16);
+      margin: auto;
+      padding: em(6,16) em(6,16);
+      a {
+        color: $content-color;
+        &:hover, &:focus { color: $color-scheme; }
+      }
+    }
+  }
+  .card-block {
+    padding: em(25,$font-size-base-px);
+  }
+}

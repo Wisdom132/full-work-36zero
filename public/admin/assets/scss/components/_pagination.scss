@@ -1,0 +1,20 @@
+// main: ../style.scss
+/********************************
+ *********************************
+Pagination
+ *********************************
+ *********************************/
+.pager,
+.pagination {
+  .material-icons {
+    font-size: rem(12);
+    vertical-align: middle;
+  }
+}
+
+.pager {
+  list-style: none;
+  display: flex;
+  padding-left: 0;
+  li.spacer { flex: 1 }
+}

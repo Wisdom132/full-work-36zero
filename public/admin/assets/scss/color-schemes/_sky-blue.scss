@@ -1,0 +1,6 @@
+// main: ../style.scss
+
+$color-scheme: #1e83c3;
+$color-scheme-hover: darken($color-scheme, 7%);
+$color-scheme-dark: darken($color-scheme, 7%);
+$color-scheme-dark-hover: darken($color-scheme-hover, 7%);

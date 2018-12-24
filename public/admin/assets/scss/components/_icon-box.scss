@@ -1,0 +1,92 @@
+// main: ../style.scss
+/********************************
+*********************************
+Icon Box
+*********************************
+*********************************/
+.icon-box {
+  header {
+    i {
+      font-size: em(50);
+      color: $body-color;
+    }
+    img {
+      @include size(em(60));
+      max-width: none;
+    }
+  }
+
+  section {
+    h5 {
+      font-size: em(15);
+      font-weight: 700;
+    }
+    p {
+      line-height: em(25, 14);
+      font-size: em(14);
+    }
+  }
+}
+
+.icon-box-centered {
+  padding: em(40) em(20) em(30);
+  section {
+    margin-top: em(30);
+  }
+  h5 {
+    margin-bottom: em(25,15);
+  }
+
+}
+
+.icon-box-left {
+  overflow: hidden;
+  zoom: 1;
+  padding: em(20) 0;
+
+  header, section {
+    padding-right: em(20);
+    display: table-cell;
+    vertical-align: top;
+    i {
+      padding: 0 em(10, 50);
+    }
+  }
+
+  section {
+    padding-right: 0;
+
+    h5 {
+      margin-top: 0;
+    }
+  }
+}
+
+.icon-box-circle-bg {
+  header {
+    i {
+      color: #fff;
+      background: $body-color;
+    }
+  }
+}
+
+.icon-box-outline {
+  header {
+    i {
+      border: 1px solid $body-color;
+
+    }
+  }
+}
+
+.icon-box-circle-bg,
+.icon-box-outline {
+  header {
+    i {
+      font-size: em(30);
+      padding: em(20, 30);
+      border-radius: 100%;
+    }
+  }
+}

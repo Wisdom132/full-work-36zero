@@ -1,0 +1,415 @@
+// main: ../style.scss
+/********************************
+ *********************************
+Inbox
+ *********************************
+ *********************************/
+
+/* Mail Sidebar
+========================*/
+.inbox-categories {
+  margin-bottom: em(25);
+
+  li { clear: both }
+  a {
+    font-size: em(15);
+    position: relative;
+    color: $headings-color;
+    line-height: em(40,15);
+    padding: 0 em(15);
+    display: block;
+    border-right: 3px solid transparent;
+    font-family: $headings-font-family;
+
+    &:hover { background: $nav-link-hover-color }
+  }
+
+  .list-icon {
+    font-size: em(16);
+    opacity: .8;
+    line-height: em(40,16);
+  }
+
+  .badge {
+    @include position(absolute, 50% em(20,12) null null);
+    transform: translateY(-50%);
+  }
+
+  .active {
+    background: $dropdown-link-hover-bg;
+    border-right: 3px solid $info;
+  }
+
+  .add-btn {
+    border-top: 1px solid rgba($theme-border-color, 0.4);
+  }
+}
+
+
+
+/* Mail Inbox
+========================*/
+.mail-sidebar {
+  border-right: 1px solid $theme-border-color;
+}
+
+.mail-inbox {
+  position: relative;
+
+  header {
+    .btn {
+      border-bottom-left-radius: 0;
+      border-bottom-right-radius: 0;
+    }
+
+    .list-icon {
+      font-size: em(16);
+      color: #797979;
+    }
+  }
+}
+
+.mail-inbox-select-all {
+  margin: em(10,12) em(25, 12) 0 0;
+  font-size: em(12);
+  display: inline-block;
+
+  span.label-text {
+    padding-left: em(25,12);
+  }
+}
+
+.mail-inbox-sort {
+  font-size: em(12);
+  line-height: em(44,12);
+  position: relative;
+  z-index: 1;
+  top: 2px;
+  a {
+    color: #bbb;
+    display: inline-block;
+    border-bottom: 1px solid transparent;
+    &:hover { color: #000; }
+  }
+
+  .active a {
+    border-color: #000;
+    color: #000;
+  }
+
+  li:last-child {
+    padding-right: 0;
+  }
+}
+
+.mail-list {
+  border: 1px solid $theme-border-color;
+  border-left: 0;
+  border-right: 0;
+  position: relative;
+  top: em(-1);
+  width: 100%;
+
+  tr {
+    &:nth-child(even) {
+      background: $nav-link-hover-color;
+    }
+
+    &:first-child td {
+      padding-top: em(25);
+    }
+
+    &:last-child td {
+      padding-bottom: em(25);
+    }
+  }
+
+  td {
+    padding: em(10) em(8);
+    vertical-align: baseline;
+
+    figure {
+      margin-bottom: 0;
+    }
+
+    &:first-child {
+      padding-left: em(25);
+    }
+    &:last-child {
+      padding-right: em(25);
+    }
+  }
+
+  a {
+    color: $body-color;
+    &:hover { color: $color-scheme; }
+  }
+
+  .list-icon {
+    font-size: em(18);
+    color: #666;
+  }
+
+  .unread td {
+    font-weight: 600;
+  }
+}
+
+.mail-list-user {
+  width: em(75);
+  position: relative;
+
+  input[type="checkbox"],
+  figure {
+    cursor: pointer;
+  }
+
+  input[type="checkbox"] {
+    position: absolute;
+    margin: 0;
+    @include size( em(40) );
+    opacity: 0;
+  }
+
+  figure {
+    border: 2px solid transparent;
+    display: inline-block;
+    border-radius: 100%;
+    padding: em(2);
+  }
+
+  input:checked + figure {
+    border-color: $danger;
+  }
+}
+
+.mail-list-star {
+  width: em(30);
+
+  .list-icon {
+    width: em(20);
+  }
+}
+
+.mail-list-message {
+  .badge {
+    border-radius: 3px;
+    text-transform: uppercase;
+    font-size: em(11);
+    letter-spacing: em(.5);
+  }
+}
+
+.mail-list-time {
+  text-align: right;
+}
+
+
+/* Mail Single
+========================*/
+.mail-single {
+  > header {
+    margin-left: em(15);
+  }
+}
+
+.mail-single-content {
+  border: 1px solid $theme-border-color;
+  border-left: 0;
+  border-right: 0;
+  position: relative;
+  top: em(-1);
+  padding: em(35) em(50) em(10) em(50);
+
+  > header {
+    color: $headings-color;
+
+    a {
+      color: $headings-color;
+      font-weight: 700;
+      &:hover {
+        text-decoration: underline;
+      }
+    }
+  }
+}
+
+.mail-single-reply {
+  border: 1px solid $theme-border-color;
+  border-radius: 5px;
+  padding: em(20) em(50) em(20) em(50);
+  font-family: $headings-font-family;
+  margin: em(30) 0 em(20);
+  position: relative;
+
+  .triangle-top {
+    @include size(0);
+    @include position(absolute, em(-15) null null em(50) );
+    border-style: solid;
+    border-width: 0 15px 15px 15px;
+    border-color: transparent transparent #ccc transparent;
+  }
+  .triangle-top:after{
+    content: '';
+    @include position(absolute, em(1) null null em(-16) );
+    @include size(0);
+    border-style: solid;
+    border-width: 0 16px 16px 16px;
+    border-color: transparent transparent #fff transparent;
+  }
+}
+
+/* Mail Compose
+========================*/
+.mail-single-compose {
+  .card {
+    .card-footer,
+    .card-header {
+      background: #fff;
+    }
+
+    .card-header {
+      border-bottom: 0;
+      display: flex;
+      align-items: center;
+      padding: 1.5em;
+    }
+
+    i.send-to-icon {
+      @include size( 2.5em );
+      line-height: 2.5em;
+      font-size: em(18);
+      text-align: center;
+      border-radius: 100px;
+      background: $primary;
+    }
+
+    input.send-to-field,
+    input.subject-field {
+      border: 0;
+      border-bottom: 2px dashed $input-border-color;
+      @include padding( null 0);
+      font-size: em(18);
+      box-shadow: none;
+
+      &:focus {
+        box-shadow: none;
+      }
+    }
+
+    .card-footer {
+      border-top: 0;
+    }
+
+    .wysihtml5-toolbar,
+    .wysihtml5-sandbox {
+      border-left: 0 !important;
+      border-right: 0 !important;
+    }
+
+    .wysihtml5-sandbox {
+      flex: 1;
+    }
+
+    .wysihtml5-toolbar {
+      padding: 1em;
+      background: #f9f9f9;
+    }
+  }
+
+  @include mobile {
+    .card {
+      .card-header {
+        flex-flow: column;
+        align-items: stretch;
+      }
+
+      .form-group {
+        display: flex;
+        margin-right: 0 !important;
+      }
+
+
+      i.send-to-icon {
+        text-align: center;
+      }
+
+      .bootstrap-select.btn-group,
+      input.subject-field,
+      input.send-to-field {
+        flex: 1;
+        margin-bottom: 1em;
+      }
+    }
+  }
+  @include tablet {
+    .card {
+      .card-header {
+        flex-flow: column;
+        align-items: stretch;
+      }
+
+      .form-group {
+        display: flex;
+        margin-right: 0 !important;
+      }
+
+
+      i.send-to-icon {
+        text-align: center;
+      }
+
+      .bootstrap-select.btn-group,
+      input.subject-field,
+      input.send-to-field {
+        flex: 1;
+        margin-bottom: 1em;
+      }
+    }
+  }
+}
+
+/* Mail Attachment
+========================*/
+.mail-attachment {
+  .mail-attachment-heading .list-icon {
+    @include size( rem(20), 1em);
+    text-align: center;
+    font-size: rem(18);
+    margin-right: rem(5);
+    margin-left: rem(5);
+  }
+  .file-list {
+    margin: 0 rem(-15);
+  }
+  .file-list-item {
+    display: flex;
+    align-items: center;
+    border-uadius: 3px;
+    padding: em(10) em(20);
+    transition: background 0.3s ease;
+    i,
+    img {
+      @include size( em(20) );
+      line-height: em(20);
+      text-align: center;
+      border-radius: 100px;
+      margin-right: em(10);
+    }
+    a {
+      color: rgba($content-color, 0.5);
+      &:hover {
+        color: $content-color;
+      }
+    }
+    a.list-inline-item {
+      text-transform: uppercase;
+      font-size: 0.75em;
+      letter-spacing: 0.1em;
+    }
+    .spacer { flex: 1 }
+    &:hover {
+      background: #f9f9f9;
+    }
+  }
+}

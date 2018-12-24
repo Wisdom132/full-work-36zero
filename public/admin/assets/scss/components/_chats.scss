@@ -1,0 +1,153 @@
+// main: ../style.scss
+/********************************
+*********************************
+Chats
+*********************************
+*********************************/
+.chat-page .wrapper > footer.footer {
+  display: none;
+}
+.chat-page .widget-body {
+  margin: em(-45);
+  background: #f1f1f1;
+}
+
+.chat-page .main-wrapper {
+  min-height: auto !important;
+}
+
+.chat-page .widget-list {
+  padding-top: 25px;
+  margin-top: 0;
+  margin-bottom: 0;
+}
+
+// .chat-left, .chat-right { height: em(450); }
+
+.chat-right {
+  height: calc(100vh - #{$nav-height});
+  right: 0;
+
+  .chat-search,
+  .chat-contact-list {
+    @include margin( null em(0) );
+  }
+
+  .chat-search, li {
+    border-left: 3px solid $theme-border-color;
+    border-bottom: 1px solid $theme-border-color;
+  }
+
+  .chat-search {
+    height: em(80);
+    padding: em(20);
+  }
+
+  .chat-contact-list {
+    .widget-user-list {
+
+    }
+
+    .media {
+      .media-body {
+        small {font-weight: 300;}
+      }
+    }
+  }
+
+  ul {
+    padding-top: 0;
+    margin-bottom: 0;
+  }
+
+  li {
+    @include padding( em(15) null null em(20) ) ;
+    cursor: pointer;
+    &:hover,
+    &:active {
+      background: #e5ecef;
+      border-left: 3px solid $info;
+    }
+    &:last-child {
+      border-left: 3px solid $theme-border-color;
+      &:hover,
+      &:active {
+        background: #e5ecef;
+        border-left: 3px solid $info;
+      }
+    }
+  }
+
+}
+
+.chat-left {
+  $footer-height: em(80);
+  $header-height: em(80);
+  height: calc(100vh - #{$nav-height});
+  display: flex;
+  flex-flow: column;
+
+  header {
+    border-bottom: 1px solid $theme-border-color;
+    align-items: center;
+    height: em(80);
+    padding: em(20);
+  }
+
+  section {
+    border-bottom: 1px solid $theme-border-color;
+    background-color: #f7f7f7;
+    height: calc(100vh - #{$nav-height} - #{$footer-height} - #{$header-height} );
+
+    .media {
+      padding: em(10) 0;
+      .rounded-circle {
+        @include size( rem(60) );
+      }
+    }
+
+    .media-body {
+      max-width: 65%;
+      p {
+        padding: em(15);
+        border-radius: 10px;
+      }
+
+      img {
+        max-width: em(250);
+        height: auto;
+        border: 1px solid $theme-border-color;
+        border-radius: 10px;
+      }
+    }
+
+    .user-left {
+      .media-body {
+        p {
+          display: inline-block;
+          background: #e7f1f6;
+        }
+      }
+    }
+
+    .user-right {
+      margin-right: em(20);
+      flex-direction: row-reverse;
+
+      .media-body {
+        p  {
+          display: inline-block;
+          background: #fff;
+        }
+      }
+    }
+
+  }
+
+  footer {
+    height: $footer-height;
+    .input-group-addon {
+      background: #fff;
+    }
+  }
+}

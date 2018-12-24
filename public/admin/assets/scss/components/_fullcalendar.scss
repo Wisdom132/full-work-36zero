@@ -1,0 +1,118 @@
+// main: ../style.scss
+
+/* Fullcalendar
+========================*/
+.fullcalendar {
+
+  h2 {
+    text-transform: uppercase;
+    font-size: rem(20);
+    line-height: em(30,20);
+  }
+
+  .fc-button { height: rem(30) }
+
+  .fc-toolbar.fc-header-toolbar {
+    padding: 0;
+    padding-bottom: em(20);
+    margin: 0;
+  }
+
+  .fc-view > table {
+    background: #fff;
+    box-shadow: 0 2px 10px 0 rgba(0,0,0,0.1);
+  }
+
+  .fc-other-month {
+    background-image: repeating-linear-gradient(
+      45deg,
+      #f9f9f9,
+      #f9f9f9 8px,
+      transparent 8px,
+      transparent 16px
+    );
+  }
+
+  td,
+  tbody {
+    border-color: rgba($theme-border-color, 0.3);
+  }
+
+  .fc-week table td {
+    &:first-child {
+      border-left: 0;
+    }
+    &:last-child{
+      border-right: 0;
+    }
+  }
+
+  .fc-view > table > thead td  { border-top: 0 }
+
+  .fc-toolbar .fc-button {
+    background: transparent;
+    border-color: rgba($theme-border-color, 0.7);
+    border-radius: 0;
+    padding: em(10) em(10);
+    box-shadow: none;
+    height: auto;
+    z-index: 1;
+    &.fc-state-active {
+      background: #fff;
+      box-shadow: 0 0 10px 0 rgba(0,0,0,0.08);
+    }
+    &.fc-state-disabled { opacity: 0.4 }
+  }
+
+  .fc-event {
+    font-size: rem(12);
+    border-radius: 0;
+    @include margin( null 0px 0px);
+    @include padding(em(5,12));
+    text-align: center;
+    color: #fff !important;
+    transition: background 0.3s ease, color 0.3s ease;
+  }
+
+  .fc-widget-header {
+    border-left: 0;
+    border-right: 0;
+  }
+
+  .fc-head .fc-axis,
+  .fc-day-header {
+    font-weight: normal;
+    font-size: em(12);
+    letter-spacing: 0.1em;
+    opacity: 0.6;
+    border: 0;
+    padding: em(20, 12) em(10,12);
+    text-transform: uppercase;
+    a { color: #fff }
+  }
+  .fc-body .fc-axis { background: #eee }
+  .fc-day-top {
+    font-size: 1em;
+    a { color: $body-color }
+  }
+}
+
+.fullcalendar-events {
+  .fc-event {
+    background: transparent !important;
+    border: 0 !important;
+    color: $content-color;
+    cursor: pointer;
+    padding: em(10) em(25);
+    font-size: $font-size-base;
+    font-family: $headings-font-family;
+    display: flex;
+    align-items: center;
+    &:hover {
+      background: $dropdown-link-hover-bg !important;
+    }
+  }
+  .fc-event-text {
+    flex: 1;
+  }
+}

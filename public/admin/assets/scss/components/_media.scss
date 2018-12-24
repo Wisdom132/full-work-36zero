@@ -1,0 +1,22 @@
+// main: ../style.scss
+
+/* Media Elements
+========================*/
+.mejs__container {
+  max-width: 100%;
+  width: 100% !important;
+  font-family: $font-family-base;
+}
+
+.mejs__overlay {
+  width: 100% !important;
+}
+
+.mejs__mediaelement * {
+  width: 100% !important;
+  max-width: 100%;
+}
+
+.video {
+  max-width: 100%;
+}

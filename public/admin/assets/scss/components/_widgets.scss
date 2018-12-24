@@ -1,0 +1,512 @@
+// main: ../style.scss
+/********************************
+*********************************
+Widgets
+*********************************
+*********************************/
+
+
+/* Counter Widget
+========================*/
+.widget-counter {
+  padding-left: em(10);
+
+  h6 {
+    text-transform: uppercase;
+    font-weight: bold;
+    margin-top: em(10);
+    padding-right: em(30);
+  }
+
+  small {
+    font-weight: 700;
+    letter-spacing: .05em;
+    display: block;
+    opacity: .5;
+    margin-top: em(5, 10.5);
+    text-transform: none;
+  }
+
+  i {
+    position: absolute;
+    top: em(30,19);
+    right: em(40,19);
+    font-size: em(19,14);
+
+    &::before,
+    &::after {
+      content: "";
+      background: #e5e5e5;
+      position: absolute;
+      left: em(-7,19);
+    }
+
+    .text-inverse &::before,
+    .text-inverse &::after {
+      background: #fff;
+      background: rgba(255,255,255,.3);
+    }
+
+    &::before {
+      top: em(6,19);
+      height: em(20,19);
+      width: em(1,19);
+    }
+
+    &::after{
+      bottom: em(-8,19);
+      width: em(20,19);
+      height: em(1,19);
+    }
+  }
+
+  h3 {
+    font-family: $tertiary-font-family;
+    font-weight: 300;
+    font-size: em(40);
+  }
+}
+
+
+/* User List
+=======================*/
+.widget-user-list {
+  padding-top: em(10);
+
+  .d-flex a {
+    display: inline-block;
+  }
+
+  // .panel & {
+  //   margin: 0 15px;
+  // }
+
+  li {
+    padding-bottom: em(10);
+    padding-top: em(15);
+    border-bottom: rem(1) solid lighten($theme-border-color, 7%);
+    &:last-child {
+      border: none;
+    }
+  }
+
+  h5 {
+    font-size: em(15);
+    font-weight: 700;
+    margin-top: 0;
+  }
+
+  small {
+    display: block;
+    font-size: em(11);
+    font-weight: 600;
+  }
+
+  .media-body {
+    position: relative;
+
+    .btn {
+      padding: 0 em(28,13);
+      text-transform: uppercase;
+      margin-top: em(3,13);
+      line-height: em(32,13);
+      border-radius: em(4,13);
+      font-size: em(13,14);
+      font-weight: 700;
+      float: right;
+    }
+
+    .btn-outline-secondary {
+      color: #ccc;
+      &:hover {
+        color: #555;
+        background-color: #e4e7ea;
+       }
+    }
+  }
+
+  @media (max-width: 480px) {
+    .media-body .btn {
+      display: none;
+    }
+  }
+
+  .media-heading a {
+    display: inline-block;
+    color: rgba(0,0,0,.7);
+    margin: em(4) 0 em(5);
+    &:hover{
+      color: $color-scheme;
+    }
+  }
+}
+
+
+/* Status Table Widget
+============================*/
+.widget-status-table {
+
+  thead {
+    color: lighten($body-color, 20%);
+  }
+
+  span {
+    text-transform: uppercase;
+    letter-spacing: em(2,10.5);
+    border-radius: em(15,10.5);
+    padding: em(5,10.5) em(15,10.5);
+  }
+
+  i {
+    letter-spacing: em(10,18);
+    &:hover{ color: $body-color !important; }
+  }
+
+  tbody{
+    a { color: rgba(0,0,0,.7); }
+    a:hover { color: $color-scheme; }
+  }
+
+  // .label {
+  //   font-size: 11px;
+  //   font-weight: 600;
+  // }
+}
+
+
+/* User Activity Feed
+====================================*/
+.widget-activity {
+  padding-top: em(10);
+
+  li {
+    position: relative;
+    margin-top: 0;
+    padding: em(10) 0;
+
+    &::before {
+      content: "";
+      background: #e5e5e5;
+      position: absolute;
+      top: 0;
+      left: em(21);
+      width: rem(1);
+      height: 100%;
+    }
+
+    &:first-child { padding-top: 0; }
+    &:last-child {
+      &, .media-body { padding-bottom: 0; }
+    }
+  }
+
+  .media-body {
+    padding: em(12) 0;
+  }
+
+  .media-heading {
+    line-height: em(21);
+    margin-top: 0;
+    strong a {
+      color: $headings-color;
+      &:hover { text-decoration: underline; }
+    }
+  }
+
+  // .label {
+  //   padding: 1px 8px;
+  //   border-radius: 5px;
+  //   text-transform: uppercase;
+  //   font-size: 11px;
+  //   font-weight: 500;
+  //   margin-right: 8px;
+  //   float: left;
+  // }
+
+  // .label-danger {
+  //   background: #e91e63 !important;
+  // }
+
+  // .label-info {
+  //   background: rgb(147,112,219) !important;
+  // }
+
+  .media-body-content {
+    padding-top: em(15);
+  }
+
+  .widget-body-image-list {
+    figcaption{
+      text-align: center;
+      padding-top: em(8);
+      font-family: $headings-font-family;
+      small{
+        display: block;
+        font-size: 70%;
+      }
+    }
+  }
+}
+
+
+/* Widget Social Twitter
+====================================*/
+.facebook-widget,
+.twitter-widget {
+  overflow: hidden;
+  position: relative;
+  padding: em(5) em(20);
+
+  h5, h6 {
+    color: #fff;
+  }
+
+  &:after {
+    font-family: 'Mono Social Icons Font';
+    font-size: em(300);
+    line-height: rem(100);
+    opacity: 0.3;
+    color: #fff;
+    @include position( absolute, null 0 0 null);
+    pointer-events: none;
+  }
+  .user-info {
+    @include position(absolute, null em(20) em(20) 0);
+    padding: em(20) em(20) em(10);
+  }
+  .user-profile-picture {
+    @include size( em(40) );
+    border-radius: em(100);
+    float: left;
+    margin-right: em(10);
+  }
+  .user-name {
+    margin-top: em(5);
+    margin-bottom: em(5);
+    text-transform: uppercase;
+    font-weight: bold;
+    font-size: em(14);
+  }
+  .user-screen-name {
+    margin: 0;
+    opacity: 0.5;
+    font-size: em(12);
+  }
+  div.status {
+    margin-top: em(20);
+    margin-bottom: em(150);
+    clear: both;
+  }
+  p {
+    margin-bottom: 0;
+    font-size: em(16);
+    font-family: $tertiary-font-family;
+    font-weight: 300;
+  }
+}
+
+.twitter-widget::after { content: 'twitterbird'; }
+
+.facebook-widget {
+  &:after {
+    content: 'facebook';
+  }
+}
+
+
+/* Chart Specific Styles
+====================================*/
+.progress-stats-round {
+  position: relative;
+
+  .list-icon {
+    font-size: em(30);
+    font-weight: 600;
+    position: absolute;
+    top: em(30,30);
+    left: 50%;
+    transform: translateX(-50%);
+  }
+}
+
+.widget-social {
+  a{
+    margin-top: em(-20);
+    margin-bottom: em(-20);
+    padding-top: em(30);
+    padding-bottom: em(15);
+    &:hover {
+      text-decoration: none;
+    }
+    i {
+      font-size: em(40);
+    }
+  }
+}
+
+.widget-social-ft {
+  margin-top: em(-20);
+  margin-bottom: em(-20);
+  header {
+    padding: em(20) 0;
+    i {
+      font-size: em(40);
+    }
+  }
+  div {
+    div {
+      &:last-child {
+        border-left: rem(1) solid $theme-border-color;
+      }
+    }
+  }
+}
+
+.doughnut-widget {
+  position: relative;
+  section {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    small {
+      display: inline-block;
+    }
+  }
+}
+
+.doughnut-widget-details {
+  ul {
+    width: em(100);
+    line-height: em(30);
+    margin-left: 50%;
+    transform: translateX(-50%);
+  }
+}
+
+.statistic-squares {
+  [class*="col-"] {
+    border-top: rem(1) solid #eee;
+    border-left: rem(1) solid #eee;
+    padding-top: em(30);
+    padding-bottom: em(30);
+
+    &:first-child {
+      border-left: 0;
+    }
+  }
+
+  > .row:first-child [class*="col-"] {
+    border-top: 0;
+  }
+}
+
+.knob-widget {
+  section {
+    position: relative;
+    i {
+      font-size: em(60);
+      color: rgba(0,0,0,.1);
+      position: absolute;
+      left: 50%;
+      top: 50%;
+      transform: translate(-50%, -50%);
+    }
+  }
+
+  ul {
+    li{
+      padding-left: em(20);
+      padding-right: em(20);
+      &:last-child{
+        border-left: rem(1) solid $theme-border-color;
+      }
+    }
+  }
+}
+
+.card-user-info-widget {
+  .caption-btn  {
+    > a {
+      margin-bottom: em(10,15);
+      letter-spacing: em(2,15);
+    }
+  }
+  .followers-details-list {
+    li {
+      border: rem(1) solid $theme-border-color;
+      padding: 0 em(40);
+      &:first-child {
+        border-left: 0;
+      }
+      &:last-child {
+        border-left: 0;
+        border-right: 0;
+      }
+    }
+  }
+
+  .email-details-list {
+    li {
+      padding: 0px em(30);
+      line-height: em(30);
+    }
+  }
+}
+
+
+/********************************
+*********************************
+Light Box Gallery
+*********************************
+*********************************/
+
+.lightbox-gallery {
+  .lightbox {
+    a {
+      overflow: hidden;
+      display: block;
+      position: relative;
+
+      span {
+        visibility: hidden;
+        transition: all 250ms;
+        opacity: 0;
+        display: block;
+        width: 100%;
+        height: 100%;
+        position: absolute;
+        top: 0;
+        left: 0;
+        background: rgba(0,0,0,.7);
+
+        i {
+          color: #fff;
+          position: absolute;
+          top: 50%;
+          left: 50%;
+          margin-left: em(-18,36);
+          transform: translateY(em(50,36));
+          transition: transform 250ms;
+        }
+      }
+
+      img {
+        transition: all 250ms;
+      }
+
+      &:hover {
+        img { transform: scale(1.1); }
+        span {
+          visibility: visible;
+          opacity: 1;
+
+          i {
+            transform: translateY(-50%);
+          }
+        }
+      }
+    }
+
+  }
+}

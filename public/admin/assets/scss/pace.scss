@@ -1,0 +1,88 @@
+// compileExpanded ../css/$1.css
+@import "variables";
+@import "vendors/bourbon";
+
+/*
+* Name:        #{ $theme-name }
+* Written by:   Unifato - (http://unifato.com)
+* Version:      1.0.0
+*/
+
+/* Page Pre Loader
+========================*/
+body {
+  &:after {
+    content: "";
+    @include position(fixed, 0);
+    z-index: 99;
+    background: #fff;
+  }
+  &.pace-done:after {
+    display: none;
+  }
+}
+
+.pace {
+  @include position(fixed, 0);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background: #fff;
+  z-index: 100;
+  transition: all 0.3s ease;
+}
+
+.pace-active {
+  opacity: 1;
+  visibility: visible;
+}
+.pace-active * {
+  box-sizing: border-box;
+}
+
+.pace-inactive {
+  opacity: 0;
+  visibility: hidden;
+}
+
+.pace-activity {
+  @include position(absolute, 50% null null 50%);
+  transform: translateY(-50%) translateX(-50%);
+  width: 1em;
+  height: 1em;
+  font-size: 70px;
+  display:block;
+}
+
+.pace-activity::before,
+.pace-activity::after {
+  content: "";
+  top: 0;
+  display: block;
+  width: 1em;
+  height: 1em;
+  position: absolute;
+  border-width: 0.5em;
+  border-style: double;
+  border-color: transparent;
+  border-radius: 1em;
+  box-sizing: border-box;
+  animation: spin 1.15s infinite;
+}
+
+.pace-activity::before {
+  right: 0;
+  border-right-color: $color-scheme;
+  animation-delay: -0.29s;
+}
+
+.pace-activity::after {
+  left: 0;
+  border-left-color: $color-scheme;
+}
+
+@keyframes spin {
+  from {
+    transform: rotate(360deg);
+  }
+}

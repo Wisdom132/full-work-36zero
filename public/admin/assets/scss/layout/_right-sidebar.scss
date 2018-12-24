@@ -1,0 +1,358 @@
+// main: ../style.scss
+
+/* Right Sidebar
+========================*/
+.scrollbar-enabled {
+  position: relative;
+}
+
+.sidebar-dark .site-sidebar,
+.right-sidebar-dark .right-sidebar {
+  .ps-scrollbar-y-rail,
+  .ps-scrollbar-x {
+    background: transparent !important;
+  }
+
+  .ps-scrollbar-y {
+    background: rgb(220,220,220) !important;
+    right: 0 !important;
+    width: rem(5) !important;
+  }
+}
+
+.right-sidebar {
+	@include position(fixed, $nav-height 0 null null);
+	width: $right-sidebar-width;
+	background: #fff;
+  height: calc(100vh - #{$nav-height});
+	border-left: 1px solid $theme-border-color;
+  transform: translateX(100%);
+  padding: em(15);
+  z-index: 9;
+
+  .right-sidebar-expand & {
+    transform: translateY(0);
+  }
+
+  @include tablet {
+    .right-sidebar {
+      width: 100%;
+      height: auto;
+    }
+  }
+}
+
+.sidebar-chat-info {
+  color: $nav-link-color;
+  font-size: em(13);
+}
+
+
+/* Sidebar Chat
+========================*/
+.sidebar-chat {
+  z-index: 9999999;
+
+	.list-group-item {
+		background: none;
+		border: 0;
+		@include padding(em(10) 1.5em em(10) null);
+		overflow: hidden;
+    color: $body-color;
+
+    &:hover,
+    &.chat-active,
+    &.active,
+    &.active:focus,
+    &.active:hover {
+      background: $nav-link-hover-color;
+      color: $body-color;
+      z-index: auto;
+    }
+
+		img {
+			margin-right: em(10);
+			border-radius: 100px;
+			@include position(absolute, 50% null null em(15));
+			transform: translateY(-50%);
+		}
+
+		span {
+			overflow: hidden;
+			padding-left: rem(45);
+      line-height: 1em;
+			display: inline-block;
+      position: relative;
+		}
+
+    .name {
+      font-size: em(13);
+      font-family: $headings-font-family;
+      top: em(2,13);
+      margin-bottom: em(10,13);
+      margin-top: em(4,13);
+    }
+
+    .username {
+      opacity: 0.7;
+      font-size: em(12);
+      top: em(-1,12);
+      margin-bottom: em(5,12);
+    }
+	}
+
+	.list-group-item:first-child {
+		border-radius: 0;
+	}
+
+	[class*="user-"]:after {
+		@include position(absolute, calc(50% + 15px) null null em(15));
+		transform: translateY(-50%);
+	}
+}
+
+.sidebar-chat-subtitle {
+	text-transform: uppercase;
+	margin-top: em(40);
+  color: #bbb;
+  font-weight: 700;
+  letter-spacing: em(1);
+}
+
+
+/* Chat Panel
+========================*/
+.chat-panel {
+	@include position(fixed, calc(100vh) calc( #{$right-sidebar-width} + 15px) null null);
+	width: em(300);
+  transform: translateY(-100%) translateX(#{$right-sidebar-width});
+	z-index: 9999;
+
+  .right-sidebar-expand & {
+    transform: translateY(-100%) translateX(0);
+  }
+
+  .minimize {
+    border: 0;
+    background: none;
+    @include size(auto);
+    padding: 0;
+    margin: 0;
+    margin-right: em(5);
+    line-height: 1em;
+    position: relative;
+    top: em(-1);
+    float: right;
+    color: #000;
+    opacity: 0.2;
+
+    &:hover {
+      opacity: 0.5;
+    }
+  }
+
+  .close {
+    opacity: 0.2;
+    &:hover {
+      opacity: 0.5;
+    }
+  }
+
+	.card{
+		border-color: $color-scheme;
+    margin-bottom: em(20);
+		.card-header {
+      background: $color-scheme;
+      padding: em(10) em(15);
+      color: #fff;
+      border-bottom: 1px solid #eee;
+      font-family: $headings-font-family;
+		}
+    .card-block {
+      padding: em(15);
+    }
+	}
+
+  .messages {
+    position: relative;
+    max-height: em(300);
+    overflow-y: scroll;
+    @include margin(em(-15) em(-15) null em(-15));
+    @include padding(em(15) em(15) null em(15));
+  }
+
+  .message {
+    font-size: em(13);
+    border-radius: 3px;
+    margin-bottom: em(20,13);
+    position: relative;
+
+    p {
+      background: #f7f7f7;
+      padding: em(5,13) em(10,13);
+      border-radius: 5px;
+      margin-bottom: 0;
+    }
+  }
+
+  .user-image {
+    border-radius: 100px;
+  }
+
+  .current-user-message {
+    padding-right: em(50);
+    position: relative;
+
+    .user-image {
+      @include position(absolute, 0 0 null null);
+    }
+  }
+
+  .other-user-message {
+    padding-left: em(50);
+    position: relative;
+
+    .user-image {
+      @include position(absolute, 0 null null 0);
+    }
+
+    .message p {
+      background: #e5f7ff;
+    }
+  }
+
+  form {
+    @include margin(null em(-15) em(-15));
+    padding-bottom: em(45);
+    position: relative;
+
+    .chat-extra-buttons {
+      @include position(absolute, null null em(3) em(10));
+      li {
+        padding-right: 0;
+        padding-left: 0;
+        a {
+          color: $body-color;
+          i { font-size: em(18) }
+        }
+      }
+    }
+
+    .submit-btn {
+      @include position(absolute, null em(10,15) em(10,15) null);
+      @include size(em(30,15));
+      padding: 0;
+      i {
+        @include position(absolute, 50% calc(50% - 2px) null null);
+        transform: translateY(-50%) translateX(50%);
+        font-size: em(18,15);
+        line-height: 1;
+      }
+    }
+  }
+
+  textarea {
+    width: 100%;
+    border: 0;
+    border-top: 1px solid #eee;
+    font-size: em(13);
+    line-height: 1.7em;
+    padding: em(5,13);
+  }
+}
+
+
+/* Dark Right Sidebar
+========================*/
+.right-sidebar-dark {
+  .right-sidebar {
+    background: $color-scheme-dark;
+    border-color: rgba(255,255,255, 0.2);
+    .list-group-item {
+  		&:hover,
+      &.chat-active,
+      &.active,
+      &.active:focus,
+      &.active:hover {
+        background: $color-scheme-dark-hover;
+
+        .name {
+          color: #fff;
+        }
+      }
+
+      span {
+        color: #afb2ba;
+      }
+    }
+  }
+
+  .right-sidebar h3, .sidebar-chat-subtitle {
+    color: #fff;
+  }
+
+    .sidebar-chat-info {
+      color: #afb2ba;
+    }
+
+
+  .chat-panel {
+    // .panel-body {
+    //   background: $color-scheme-dark;
+    // }
+
+    .minimize,
+    button.close {
+      color: #fff;
+      opacity: .4;
+
+      &:hover {
+        opacity: 1;
+      }
+    }
+
+    // .panel {
+    //   .panel-heading {
+    //     border-color: rgba(255,255,255,0.2);
+    //   }
+    // }
+
+    .message p {
+      background: $color-scheme;
+      color: #fff;
+    }
+
+    .current-user-message {
+      .message::after {
+        border-top-color: $color-scheme-dark-hover;
+      }
+
+      p {
+        background: $color-scheme-dark-hover;
+      }
+    }
+
+    .chat-extra-buttons {
+      a {
+        transition: all 0.3s ease;
+        color: #fff;
+        &:hover {
+          opacity: 0.6;
+          border: 0;
+        }
+      }
+    }
+
+    textarea {
+      border-color: rgba(255,255,255,0.2);
+      color: #fff;
+      background: transparent;
+
+      @include placeholder {
+        color: #fff;
+        opacity: .7;
+      }
+    }
+  }
+
+}

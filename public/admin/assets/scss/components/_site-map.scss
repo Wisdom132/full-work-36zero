@@ -1,0 +1,68 @@
+// main: ../style.scss
+/********************************
+*********************************
+Site Map
+*********************************
+*********************************/
+
+.sitemap {
+  position: relative;
+
+  i {
+    font-size: em(18);
+    vertical-align: top;
+  }
+
+  a {
+    color: #7c8d96;
+    &:hover {
+      color: $color-scheme;
+    }
+  }
+
+  ul {
+    margin-left: em(15);
+  }
+
+
+  li {
+    position: relative;
+    padding-left: em(40);
+    padding-top: em(3);
+
+    &.menu-item-has-children {
+      > ul {
+        margin-top: em(10);
+        margin-left: em(25);
+      }
+    }
+
+    &::before {
+      content: "";
+      position: absolute;
+      left: em(7);
+      top: em(-12);
+      height: em(25);
+      width: em(35);
+      border-bottom: rem(1) solid #ddd;
+      border-left: rem(1) solid #ddd;
+    }
+
+  }
+}
+
+.sitemap-default,
+.sitemap-right     {
+  a {
+    margin-left: em(10);
+  }
+}
+
+.sitemap-right {
+  strong {
+    color: $color-scheme;
+    text-transform: uppercase;
+    font-size: em(15);
+    font-weight: 500;
+  }
+}

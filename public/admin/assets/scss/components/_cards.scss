@@ -1,0 +1,108 @@
+// main: ../style.scss
+/********************************
+*********************************
+Card
+*********************************
+*********************************/
+.card {
+  &[class*='bg']:not([class*='card-inverse']) {
+    .card-header {
+      background: inherit;
+    }
+  }
+
+}
+
+@each $col, $val in $colors {
+  .card-#{$col} {
+    background: #{$val};
+  }
+}
+
+.card-title {
+  margin-top: 0;
+}
+
+.card-header {
+  .list-icon {
+    position: absolute;
+    right: rem(10);
+    top: rem(10);
+    width: rem(50);
+    height: rem(50);
+    text-align: center;
+    line-height: rem(50);
+    border-radius: 100%;
+    transition: transform $transition-duration $transition-function;
+  }
+}
+
+.card-action {
+  border-top: $card-border-width solid $card-border-color;
+  padding: $card-spacer-x;
+}
+
+.card-link {
+  .text-inverse &:hover,
+  &:hover {
+    text-decoration: none;
+  }
+  & + .card-link { margin-left: 1em }
+}
+
+.card-expandable {
+  .card-body, .card-action {
+    display: none;
+  }
+
+  &.card-expanded .card-body,
+  &.card-expanded .card-action {
+    display: block;
+  }
+
+  &.card-expanded .list-icon {
+    transform: rotate(180deg);
+  }
+
+  .card-header {
+    cursor: pointer;
+  }
+}
+
+
+
+.card-outline {
+  @each $col, $val in $theme-colors {
+    &-#{$col} {
+      border-color: #{$val};
+      .card-footer,
+      .card-header {
+        background: #{$val};
+      }
+    }
+  }
+  @each $col, $val in $colors {
+    &-#{$col} {
+      border-color: #{$val};
+      .card-footer,
+      .card-header {
+        background: #{$val};
+      }
+    }
+  }
+}
+
+[class*='card-outline'] {
+  .card-block {
+    background: #fff;
+    border-bottom-left-radius: $card-border-radius;
+    border-bottom-right-radius: $card-border-radius;
+  }
+  .card-footer,
+  .card-header {
+    color: #fff;
+    h1, h2, h3, h4, h5, h6 {
+      color: inherit;
+    }
+  }
+}

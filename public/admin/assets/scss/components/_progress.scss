@@ -1,0 +1,22 @@
+// main: ../style.scss
+/********************************
+ *********************************
+Progress
+ *********************************
+ *********************************/
+.progress {
+  &.progress-xsm {
+    height: rem(20);
+    margin: em(7) 0;
+  }
+  &.progress-sm {
+    height: rem(10);
+    margin: em(5) 0;
+  }
+}
+
+.progress-lg {
+  .progress-bar {
+    height: 100%;
+  }
+}

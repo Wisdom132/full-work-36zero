@@ -1,0 +1,29 @@
+{
+  "name": "Oscar",
+  "version": "1.0.0",
+  "description": "HTML Admin Theme",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "Unifato",
+  "license": "ISC",
+  "dependencies": {
+    "jquery-tabledit": "^1.0.0",
+    "nestable2": "^1.3.0",
+    "tablesaw": "^3.0.0"
+  },
+  "devDependencies": {
+    "gulp": "^3.9.1",
+    "gulp-autoprefixer": "^4.0.0",
+    "gulp-html-minifier2": "^1.1.8",
+    "gulp-html-prettify": "0.0.1",
+    "gulp-install": "^1.1.0",
+    "gulp-jsbeautifier": "^2.1.1",
+    "gulp-livereload": "^3.8.1",
+    "gulp-php2html": "^0.3.2",
+    "gulp-sass": "^3.1.0",
+    "gulp-sourcemaps": "^2.6.0",
+    "ncp": "^2.0.0"
+  }
+}
